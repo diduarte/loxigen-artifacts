@@ -66,7 +66,7 @@ class OFTableFeaturesVer13 implements OFTableFeatures {
             throw new NullPointerException("OFTableFeaturesVer13: property tableId cannot be null");
         }
         if(name == null) {
-            throw new NullPointerException("OFTableFeaturesVer13: property name cannot be null");
+           // throw new NullPointerException("OFTableFeaturesVer13: property name cannot be null");
         }
         if(metadataMatch == null) {
             throw new NullPointerException("OFTableFeaturesVer13: property metadataMatch cannot be null");
@@ -247,7 +247,7 @@ class OFTableFeaturesVer13 implements OFTableFeatures {
                     throw new NullPointerException("Property tableId must not be null");
                 String name = this.nameSet ? this.name : parentMessage.name;
                 if(name == null)
-                    throw new NullPointerException("Property name must not be null");
+                   // throw new NullPointerException("Property name must not be null");
                 U64 metadataMatch = this.metadataMatchSet ? this.metadataMatch : parentMessage.metadataMatch;
                 if(metadataMatch == null)
                     throw new NullPointerException("Property metadataMatch must not be null");
@@ -381,7 +381,7 @@ class OFTableFeaturesVer13 implements OFTableFeatures {
                 throw new NullPointerException("Property tableId must not be null");
             String name = this.nameSet ? this.name : DEFAULT_NAME;
             if(name == null)
-                throw new NullPointerException("Property name must not be null");
+                //throw new NullPointerException("Property name must not be null");
             U64 metadataMatch = this.metadataMatchSet ? this.metadataMatch : DEFAULT_METADATA_MATCH;
             if(metadataMatch == null)
                 throw new NullPointerException("Property metadataMatch must not be null");
@@ -487,7 +487,7 @@ class OFTableFeaturesVer13 implements OFTableFeatures {
             message.tableId.writeByte(bb);
             // pad: 5 bytes
             bb.writeZero(5);
-            ChannelUtils.writeFixedLengthString(bb, message.name, 32);
+            ChannelUtils.writeFixedLengthString(bb, message.name, 1024);
             bb.writeLong(message.metadataMatch.getValue());
             bb.writeLong(message.metadataWrite.getValue());
             bb.writeInt(U32.t(message.config));
